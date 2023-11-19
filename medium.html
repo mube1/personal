@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medium Articles</title>
+</head>
+<body>
+
+<script>
+    // Replace this URL with the Medium user's profile URL you want to scrape
+    const mediumProfileUrl = 'https://medium.com/@ube10';
+    // const mediumProfileUrl ='https://leimao.github.io/reading/'
+    // const gitProfileUrl = 'https://github.com/mube1?tab=repositories';
+    
+    fetch(mediumProfileUrl)
+.then((response) => response.json())
+.then((json) => console.log(json));
+    // const xhr = new XMLHttpRequest();
+    // xhr.open("GET",mediumProfileUrl);
+    // xhr.send();
+    // xhr.responseType = "json";
+    // xhr.onload = () => {
+    // if (xhr.readyState == 4 && xhr.status == 200) {
+    //     const data = xhr.response;
+    //     console.log(data);
+    // } else {
+    //     console.log(`Error: ${xhr.status}`);
+    // }
+    // };
+
+
+        fetch(mediumProfileUrl,  {
+           method: 'GET',
+           credentials: "include",
+           mode: 'no-cors',           
+        }).then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            
+            // Extract Medium article links
+            const articleLinks = Array.from(doc.querySelectorAll('a[href*="/p/"]')).map(link => link.href);
+
+            // console.log('Medium Articles:', articleLinks);
+        })
+        .catch(error => console.error('Error fetching Medium articles:', error));
+</script>
+
+</body>
+</html>

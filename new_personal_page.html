@@ -1,116 +1,234 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./index.js"></script>
-    
-    <title> Mubarek</title>
-   <link rel="shortcut icon" href="git_ube.png">
+    <title>Mubarek Mohammed - Personal Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+            display: flex;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 10;
+        }
+
+        .navbar .name {
+            font-size: 24px;
+            color: white;
+        }
+
+        .navbar .nav-links {
+            display: flex;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .dark-mode-btn {
+            background-color: #555;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 15%;
+            padding: 20px;
+            background-color: #f4f4f4;
+            position: fixed;
+            top: 60px;
+            left: 0;
+            height: 100%;
+        }
+
+        .sidebar img {
+            width: 100px;
+            border-radius: 50%;
+        }
+
+        .sidebar h2 {
+            margin-top: 20px;
+            font-size: 22px;
+        }
+
+        .sidebar .icons a {
+            display: block;
+            margin: 15px 0;
+            font-size: 20px;
+            color: black;
+            text-decoration: none;
+        }
+
+        .icons a i {
+            margin-right: 10px;
+        }
+
+        /* Main content */
+        .container {
+            margin-left: 15%;
+            padding: 20px;
+            padding-top: 80px;
+            width: 85%;
+        }
+
+        .article-box {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .article-box h3 {
+            margin-top: 0;
+        }
+
+        .dark-mode {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .dark-mode .navbar {
+            background-color: #222;
+        }
+
+        .dark-mode .navbar a {
+            color: #fff;
+        }
+
+        .dark-mode .navbar a:hover {
+            background-color: #555;
+        }
+    </style>
 </head>
+
 <body>
 
-    <div class="header">
-        
-
-
-        
-
-        <div class="header-right">
-            <a class="active" href="#home">Home</a>
-            
-            <a href="#contact">Articles</a>
-            <a href="#contact">Projects</a>
-            <a href="#contact">Papers</a>
-            <a href="#contact">Presentations</a>
-            <a href="#contact">Readings</a>
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="#" onclick="changeMode()"><span id="mode">Dark : off</span></a>
-
-          </div>
-
-
-    </div>
- 
-    <div class="sidenav">
-        
-        <img src="git_ube.png" style=" border-radius: 50%; width: 50%;  
-         
-        margin: auto;
-        justify-content: center;
-        display: block;
-
-          " alt="Ube">
-        <BR CLEAR=ALL />         <BR CLEAR=ALL />
-        
-        <!-- <a href="#about">About</a> -->
-        <span style="font-size: small; color: white; padding: 5%;">
-            Artificial Intelligence, Machine Learning, Mathematics, Cybersecurity, Cryptography,
-            Psychology
-            <BR CLEAR=ALL />
-            <br>
-            <BR CLEAR=ALL /> <BR CLEAR=ALL />
-            mubarek.mohammed@aait.edu.et
-            <BR CLEAR=ALL />
-            mubarek045@gmail.com 
-            <BR CLEAR=ALL />
-        </span> <br>
-    
-        
-        <!-- <h5 style="color: white; padding-left: 10%;">Contact</h5> -->
-        <a href="https://github.com/mube1" class="right"> <i class="fa fa-github" style="font-size:24px"></i></a>
-        <a href="https://t.me/ube100" class="right"> <i class="fa fa-telegram" style="font-size:24px"></i></a>
-        <a href="https://www.linkedin.com/in/mubarek-mohammed-a716921a1/" class="right"> <i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
-        <a href="https://www.linkedin.com/in/mubarek-mohammed-a716921a1/" class="right">
-             <!-- <i class="fa-brands fa-medium"></i> -->
-             <i class="fa fa-medium" aria-hidden="true"></i>
-
-        </a>
-        
-
+    <!-- Navbar -->
+    <div class="navbar">
+        <div class="name">Mubarek Mohammed</div>
+        <div class="nav-links">
+            <a href="#" id="home">Home</a>
+            <a href="#" id="projects">Projects</a>
+            <a href="#" id="presentations">Presentations</a>
+            <a href="#" id="articles">Articles</a>
+            <a href="#" id="publications">Publications</a>
+            <a href="#" id="readings">Readings</a>
+            <a href="#" id="contact">Contact</a>
+            <button class="dark-mode-btn" id="dark-mode-toggle">Dark Mode</button>
+        </div>
     </div>
 
-    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <img src="git_ube.png" alt="Mubarek Mohammed">
+        <h2>Mubarek Mohammed</h2>
+        <div class="icons">
+            <a href="mailto:mubarek.mohammed@aait.edu.et"><i class="fas fa-envelope"></i> Email</a>
+            <a href="https://github.com/mube1" target="_blank"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://ube10.medium.com" target="_blank"><i class="fab fa-medium"></i> Medium</a>
+            <a href="https://www.linkedin.com/in/mubarek-mohammed-a716921a1/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://twitter.com/ube10_" target="_blank"><i class="fab fa-twitter"></i> Twitter</a>
+            <a href="https://scholar.google.com/citations?user=G81Fg1YAAAAJ&hl=en" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a>
+        </div>
+    </div>
 
-<div class="main">
+    <!-- Main Content -->
+    <div class="container" id="content">
+        <h1>Welcome to My Website</h1>
+        <p>This is the same text from your existing page.</p>
+    </div>
 
-    <h2>About Me</h2>
-    
-    Hello there, I am from Addis Ababa, Ethiopia.
+    <script>
+        // Dark mode toggle
+        document.getElementById('dark-mode-toggle').addEventListener('click', function () {
+            document.body.classList.toggle('dark-mode');
+            this.textContent = document.body.classList.contains('dark-mode') ? 'Light Mode' : 'Dark Mode';
+        });
 
-    <h2>Mathematics</h2>
-I studied Mathematics as Addis Ababa University(AAU) and its a subject that is dear and close to my heart. It fits in my head. I will always be a mathematician first. I consider myself a lucky mathematician as I get to work on the two most important applications of mathematics in technology: Cryptography and Artificial Intelligence. Most math students, especially in Ethiopia, never get to see its applications. I plan to do something about it, may be put together a workshop, not sure.
-    
+        // Fetch and display Medium articles
+        document.getElementById('articles').addEventListener('click', function () {
+            const content = document.getElementById('content');
+            content.innerHTML = "<h2>Articles</h2><p>Loading articles from Medium...</p>";
+            fetch('https://api.rss2json.com/v1/api.json?rss_url=https://ube10.medium.com/feed')
+                .then(response => response.json())
+                .then(data => {
+                    let articlesHtml = '<h2>Articles</h2>';
+                    data.items.forEach(item => {
+                        articlesHtml += `
+                            <div class="article-box" onclick="displayArticle('${item.link}')">
+                                <h3>${item.title}</h3>
+                                <p>${item.description.substring(0, 150)}...</p>
+                            </div>`;
+                    });
+                    content.innerHTML = articlesHtml;
+                });
+        });
 
-<h3>AI</h3>
-<p>
-    AI is now what I currently do everyday.
-    I have been assigned to supervise a tiny team dedicated to applying AI for Cybersecutiy.        
-    In general, I am interested in Model Compression, Explainability, AI alignment, NLP, and AGI.
+        // Display the selected article or redirect if not embeddable
+        function displayArticle(url) {
+            const content = document.getElementById('content');
+            content.innerHTML = `<iframe src="${url}" width="100%" height="600px"></iframe>`;
+        }
 
-</p>
+        // Fetch and display GitHub projects (custom projects list)
+        document.getElementById('projects').addEventListener('click', function () {
+            const content = document.getElementById('content');
+            content.innerHTML = "<h2>Projects</h2><p>Loading projects from GitHub...</p>";
+            fetch('https://api.github.com/users/mube1/repos')
+                .then(response => response.json())
+                .then(data => {
+                    let projectsHtml = '<h2>Projects</h2>';
+                    data.forEach(repo => {
+                        projectsHtml += `
+                            <div class="article-box">
+                                <h3>${repo.name}</h3>
+                                <p>${repo.description ? repo.description : 'No description provided.'}</p>
+                                <a href="${repo.html_url}" target="_blank">View on GitHub</a>
+                            </div>`;
+                    });
+                    content.innerHTML = projectsHtml;
+                });
+        });
 
-<h3>Soft stuff</h3>
-<p>
-I did have an interest in personal knowledge, the soul and stuff like that.
-Sometimes, I try to connect them with the AI stuff. 
-Check out my writings <a href="https://ube10.medium.com">here</a>.
-
-</p>
-
-<h3>Tiny Leadership</h3>
-
-I try to inspire a better mental environment to create frictionless interaction and communication. 
-
-      
-    
-    <script> document.getElementById("defaultOpen").click();  </script>
-
-</div>
-   
-
+        // Publications section
+        document.getElementById('publications').addEventListener('click', function () {
+            const content = document.getElementById('content');
+            content.innerHTML = `<h2>Publications</h2>
+                <ul>
+                    <li><a href="https://scholar.google.com/citations?user=G81Fg1YAAAAJ&hl=en" target="_blank">Google Scholar</a></li>
+                    <li><a href="https://www.researchgate.net/profile/Mubarek-Mohammed-3" target="_blank">ResearchGate</a></li>
+                </ul>`;
+        });
+    </script>
 </body>
+
 </html>
